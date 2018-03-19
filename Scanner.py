@@ -8,7 +8,7 @@ def importCSV():
     Info = []
     Dict = {'ListID' : 'CardID'}
     with open('IDMap.csv', 'r') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         i = 0
         for row in spamreader:
             Info.append(row)
@@ -27,7 +27,7 @@ def scanCard(Info, Dict):
 
 def logAttendance(card, id, room):
     with open('Log.csv', 'a') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=' ', quotechar = '|')
+        spamwriter = csv.writer(csvfile, delimiter=',', quotechar = '|')
         spamwriter.writerow([datetime.datetime.isoformat(datetime.datetime.now()), card, id, room])
 
 def showImage(id):
